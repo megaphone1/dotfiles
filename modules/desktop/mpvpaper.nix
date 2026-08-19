@@ -10,7 +10,7 @@
       home.packages = [ pkgs.mpv ];
 
       programs.mpvpaper = {
-        enabled = true;
+        enable = true;
         package = pkgs.mpvpaper;
         stopList = ''
           steam
