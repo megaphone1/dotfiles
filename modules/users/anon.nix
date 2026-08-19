@@ -14,6 +14,7 @@
         self.homeModules.starship
         self.homeModules.hyprland
         self.homeModules.noctalia
+        self.homeModules.mpvpaper
         self.homeModules.firefox
         self.homeModules.golang
         self.homeModules.godot
