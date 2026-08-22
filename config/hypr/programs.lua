@@ -2,12 +2,14 @@
 ---- PROGRAMS ----
 ------------------
 
-local editor = 'emacsclient -a "" -c'
+-- local editor = 'emacsclient -c -a ""'
+local editor = "emacs"
 local browser = "firefox"
-local terminal = "ghostty"
+-- local terminal = "ghostty"
+local terminal = "GDK_DEBUG=vulkan-disable ghostty"
 
-local launcherMenu = "noctalia msg launcher toggle"
-local launcherEmoji = "noctalia msg launcher emoji"
+local launcherMenu = "noctalia msg panel-toggle launcher"
+local launcherEmoji = "noctalia msg panel-toggle launcher /emo"
 
-local wallpaperPicker = "noctalia msg wallpaper toggle"
-local wallpaperRandom = "noctalia msg wallpaper random Virtual-1"
+local wallpaperPicker = "noctalia msg panel-toggle wallpaper"
+local wallpaperRandom = "noctalia msg wallpaper-random"
