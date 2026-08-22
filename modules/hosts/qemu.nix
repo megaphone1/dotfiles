@@ -24,7 +24,6 @@
 
         self.nixosModules.nix
         self.nixosModules.user
-        self.nixosModules.cachix
         self.nixosModules.stylix
         self.nixosModules.ssh
         self.nixosModules.fish
