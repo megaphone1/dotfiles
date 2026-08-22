@@ -32,6 +32,7 @@
         self.nixosModules.hyprland
         self.nixosModules.noctalia
         self.nixosModules.neovim
+        self.nixosModules.yazi
 
         (modulesPath + "/profiles/qemu-guest.nix")
       ];

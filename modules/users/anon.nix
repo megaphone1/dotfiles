@@ -13,6 +13,7 @@
       self.homeModules.noctalia
       self.homeModules.firefox
       self.homeModules.golang
+      self.homeModules.yazi
     ];
 
     home.stateVersion = "26.05";
