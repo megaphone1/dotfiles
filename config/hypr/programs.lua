@@ -12,3 +12,6 @@ local launcherEmoji = "noctalia msg panel-toggle launcher /emo"
 
 local wallpaperPicker = "noctalia msg panel-toggle wallpaper"
 local wallpaperRandom = "noctalia msg wallpaper-random"
+
+local screenshot = "noctalia msg screenshot-fullscreen"
+local screenshotRegion = "noctalia msg screenshot-region"
