@@ -12,22 +12,23 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcherMenu))
 hl.bind(mainMod .. " + J", hl.dsp.exec_cmd(launcherEmoji))
 
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaperRandom))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(wallPaperPicker))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(wallpaperPicker))
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + P", hl.dps.window.pseudo())
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
-hl.bind(mainMod .. " + left", hl.dps.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dps.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dps.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dps.focus({ direction = "down" }))
+hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 for i = 1, 10 do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+end
 
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
