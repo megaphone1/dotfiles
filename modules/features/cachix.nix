@@ -22,6 +22,7 @@
             "https://hyprland.cachix.org"
             "https://noctalia.cachix.org"
             "https://ghostty.cachix.org"
+            "https://yazi.cachix.org"
           ];
 
           extra-substituters = [
@@ -30,6 +31,7 @@
             "https://hyprland.cachix.org"
             "https://noctalia.cachix.org"
             "https://ghostty.cachix.org"
+            "https://yazi.cachix.org"
           ];
 
           trusted-public-keys = [
@@ -38,6 +40,7 @@
             "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
             "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
             "ghostty.cachix.org-1:QB389yTa6GTyneehvqG58Y0WnHjQOqgnA+wBnpWWxns="
+            "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
           ];
 
           extra-trusted-public-keys = [
@@ -46,6 +49,7 @@
             "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
             "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
             "ghostty.cachix.org-1:QB389yTa6GTyneehvqG58Y0WnHjQOqgnA+wBnpWWxns="
+            "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
           ];
         };
       };

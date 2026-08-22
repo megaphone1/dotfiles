@@ -6,7 +6,8 @@ local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(editor))
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcherMenu))
 hl.bind(mainMod .. " + J", hl.dsp.exec_cmd(launcherEmoji))
