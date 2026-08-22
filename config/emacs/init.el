@@ -506,6 +506,23 @@
 (add-hook 'yaml-mode-hook 'eglot-ensure)
 (add-hook 'yaml-mode-hook #'dotfiles/yaml-hook)
 
+;;;;;;;;;;;;;;;;;;;;;;;
+;;;; LANGUGAE: LUA ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Add the `lua-language-server' to `eglot'.
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+	       '((lua-mode) . ("lua-language-server" "--stdio"))))
+
+;; Configure a custom `before-save-hook'.
+(defun dotfiles/lua-hook ()
+  (add-hook 'before-save-hook 'eglot-format-buffer)
+  (add-hook 'before-save-hook #'dotfiles/eglot-organize-imports nil t))
+
+(add-hook 'lua-mode-hook 'eglot-ensure)
+(add-hook 'lua-mode-hook #'dotfiles/lua-hook)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; LANGUAGE: GOLANG ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;

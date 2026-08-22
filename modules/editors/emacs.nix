@@ -93,6 +93,11 @@
           #####################
           epkgs.yaml-mode
 
+          #####################
+          ### LANGUAEG: LUA ###
+          #####################
+          epkgs.lua-mode
+
           ########################
           ### LANGUAGE: GOLANG ###
           ########################
@@ -151,6 +156,11 @@
         ### LANGUAGE: YAML ###
         ######################
         pkgs.yaml-language-server
+
+        #####################
+        ### LANGUAGE: LUA ###
+        #####################
+        pkgs.lua-language-server
       ];
 
       fonts.fontconfig.enable = true;
