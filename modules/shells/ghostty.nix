@@ -3,6 +3,9 @@
     programs.ghostty = {
       enable = true;
       enableFishIntegration = true;
+      settings = {
+        quit-after-last-window-closed = false;
+      };
     };
   };
 
