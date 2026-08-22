@@ -6,8 +6,15 @@
 #+STARTUP: hideblocks
 
 #+EXPORT_FILE_NAME: README
+-----
 
 [[./config/desktop.jpg]]
+
+-----
+
+[[./config/desktop-work.jpg]]
+
+-----
 
 #+HTML: <a href="https://nixos.org"><img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&logo=NixOS&logoColor=white"></a>
 #+HTML: <a href="https://gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Emacs-30.2-blueviolet.svg?style=for-the-badge&logo=GNU%20Emacs&logoColor=white"></a>
@@ -53,12 +60,8 @@ For modules that are defined for Home Manager, they must be imported in your spe
 #+BEGIN_QUOTE
 💡 =TIP=
 See [[file:./modules/users/anon.nix][anon.nix]] and [[file:modules/features/git.nix][git.nix]] as examples.
-#+END_QUOTE
-
-Some modules require configuration in both NixOS and Home Manager. The NixOS module must be imported in your host module, and the Home Manager module must be imported in your user module.
-
-#+BEGIN_QUOTE
-💡 =TIP=
+#+END_+QUOTE
+TIP=
 See [[file:modules/features/hyprland.nix][hyprland.nix]] and [[file:modules/features/stylix.nix][stylix.nix]] as examples.
 #+END_QUOTE
 

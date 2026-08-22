@@ -5,8 +5,9 @@
 -- local editor = 'emacsclient -c -a ""'
 local editor = "emacs"
 local browser = "firefox"
-local terminal = "alacritty"
-local fileManager = "yazi"
+local terminal = "ghostty"
+local terminalAlt = "alacritty"
+local fileManager = "ghostty -e yazi"
 
 local launcherMenu = "noctalia msg panel-toggle launcher"
 local launcherEmoji = "noctalia msg panel-toggle launcher /emo"
