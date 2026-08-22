@@ -11,7 +11,7 @@
 
 #+HTML: <a href="https://nixos.org"><img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&logo=NixOS&logoColor=white"></a>
 #+HTML: <a href="https://gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Emacs-30.2-blueviolet.svg?style=for-the-badge&logo=GNU%20Emacs&logoColor=white"></a>
-#+HTML: <a href="https://orgmode.org"><img src="https://img.shields.io/badge/Org-9.8.8-cz5ffe?style=for-the-badge&logoColor=white"></a>
+#+HTML: <a href="https://orgmode.org"><img src="https://img.shields.io/badge/Org-9.8.8-cz5ffe?style=for-the-badge%logo=org&logoColor=white"></a>
 
 Built for Life, Liberty, and the Open Road.
 
