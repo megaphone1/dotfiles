@@ -6,15 +6,6 @@
 #+STARTUP: hideblocks
 
 #+EXPORT_FILE_NAME: README
------
-
-[[./config/desktop.jpg]]
-
------
-
-[[./config/desktop-work.jpg]]
-
------
 
 #+HTML: <a href="https://nixos.org"><img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&logo=NixOS&logoColor=white"></a>
 #+HTML: <a href="https://gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Emacs-30.2-blueviolet.svg?style=for-the-badge&logo=GNU%20Emacs&logoColor=white"></a>
@@ -25,6 +16,11 @@ Built for Life, Liberty, and the Open Road.
 - [100%] Immutable
 - [100%] Declarative
 - [100%] Reproducible
+-----
+[[./config/desktop.jpg]]
+-----
+[[./config/desktop-work.jpg]]
+-----
 
 * Introduction
 
