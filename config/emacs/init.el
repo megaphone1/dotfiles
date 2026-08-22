@@ -308,8 +308,8 @@
 
 ;; Configure `org-roam'.
 (setq org-roam-completion-everywhere t
-      org-roam-directory (expand-file-name "~/Documents")
-      org-roam-dailies-directory (concat org-roam-directory "/daily")
+      org-roam-directory (expand-file-name "~/.local/share/Documents")
+      org-roam-dailies-directory (concat org-roam-directory "/Journal")
       org-roam-capture-templates '()
       org-roam-dailies-capture-templates '())
 
