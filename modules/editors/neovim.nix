@@ -51,7 +51,7 @@
             enable = true;
             extraDiagnostics.enable = true;
             format.enable = true;
-            format.type = ["deno_fmt"];
+            format.type = ["deno"];
             treesitter.enable = true;
 
             lsp = {
