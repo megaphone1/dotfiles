@@ -50,14 +50,14 @@ For modules that are defined for Home Manager, they must be imported in your spe
 
 #+BEGIN_QUOTE
 💡 =TIP=
-See [[file:./modules/users/anon.nix][anon.nix]] and [[file:./modules/tools/git.nix][git.nix]] as examples.
+See [[file:./modules/users/anon.nix][anon.nix]] and [[file:modules/features/git.nix][git.nix]] as examples.
 #+END_QUOTE
 
 Some modules require configuration in both NixOS and Home Manager. The NixOS module must be imported in your host module, and the Home Manager module must be imported in your user module.
 
 #+BEGIN_QUOTE
 💡 =TIP=
-See [[file:./modules/desktop/hyprland.nix][hyprland.nix]] and [[file:./modules/base/stylix.nix][stylix.nix]] as examples.
+See [[file:modules/features/hyprland.nix][hyprland.nix]] and [[file:modules/features/stylix.nix][stylix.nix]] as examples.
 #+END_QUOTE
 
 * Getting Started
