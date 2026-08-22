@@ -18,11 +18,11 @@
 
           cdd = "cd /etc/nixos";
 
-          nfc = "nix flake check";
-          nfu = "nix flake update";
+          nfc = "nix flake check --accept-flake-config";
+          nfu = "nix flake update --accept-flake-config";
           ncg = "sudo nix-collect-garbage -d";
-          nrs = "sudo nixos-rebuild switch --flake /etc/nixos";
-          nrr = "sudo nixos-rebuild switch --rollback";
+          nrs = "sudo nixos-rebuild switch --flake /etc/nixos --accept-flake-config";
+          nrr = "sudo nixos-rebuild switch --rollback --accept-flake-config";
 
           hmj = "journalctl -xe --unit home-manager-${config.user.name}";
 
