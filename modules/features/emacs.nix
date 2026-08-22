@@ -117,16 +117,20 @@
         let
           orgModernUrl = "https://github.com/jdtsmith/org-modern-indent";
           orgModernDir = "/home/${config.user.name}/.local/share/org-modern-indent";
-          in
+          orgRoamDirectory = "/home/${config.user.name}/.local/share/Documents";
+        in
         {
-        cloneOrgModernIndent = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          if [ -d "${orgModernDir}" ]; then
-             (cd "${orgModernDir}" && ${pkgs.git}/bin/git pull)
-          else
-             ${pkgs.git}/bin/git clone --depth=1 "${orgModernUrl}" "${orgModernDir}"
-          fi
-        '';
-      };
+          cloneOrgModernIndent = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            if [ -d "${orgModernDir}" ]; then
+               (cd "${orgModernDir}" && ${pkgs.git}/bin/git pull)
+            else
+               ${pkgs.git}/bin/git clone --depth=1 "${orgModernUrl}" "${orgModernDir}"
+            fi
+          '';
+          createOrgRoamDirectory = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            mkdir -p ${orgRoamDirectory}
+          '';
+        };
 
       home.packages = [
         ###############

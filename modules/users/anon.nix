@@ -6,6 +6,7 @@
       self.homeModules.git
       self.homeModules.gpg
       self.homeModules.emacs
+      self.homeModules.alacritty
       self.homeModules.ghostty
       self.homeModules.starship
       self.homeModules.hyprland
