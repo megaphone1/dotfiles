@@ -17,13 +17,13 @@ Built for Life, Liberty, and the Open Road.
 - [100%] Declarative
 - [100%] Reproducible
 -----
-[[./config/desktop.jpg]]
+[[./docs/desktop.jpg]]
 -----
-[[./config/desktop-work.jpg]]
+[[./docs/desktop-work.jpg]]
 -----
-[[./config/desktop-file-manager.jpg]]
+[[./docs/desktop-file-manager.jpg]]
 -----
-[[./config/desktop-sys-monitor.jpg]]
+[[./docs/desktop-sys-monitor.jpg]]
 -----
 
 * Introduction
