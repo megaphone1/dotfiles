@@ -1,5 +1,5 @@
-{self, ...}: {
-  flake.homeConfigurations.anon = {...}: {
+{ self, ... }: {
+  flake.homeConfigurations.anon = { ... }: {
     imports = [
       self.homeModules.user
       self.homeModules.stylix
@@ -16,6 +16,17 @@
       self.homeModules.yazi
     ];
 
-    home.stateVersion = "26.05";
+    config = {
+      user = {
+        name = "anon";
+        fullName = "Anonymous";
+        email = "anon@devnull.com";
+        key = "ABCD1234";
+        location = "Edmonton, Alberta, Canada";
+        timeZone = "America / Edmonton";
+      };
+
+      home.stateVersion = "26.05";
+    };
   };
 }
