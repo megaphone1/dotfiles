@@ -59,9 +59,6 @@ For modules that are defined for Home Manager, they must be imported in your spe
 
 #+BEGIN_QUOTE
 💡 =TIP=
-See [[file:./modules/users/anon.nix][anon.nix]] and [[file:modules/features/git.nix][git.nix]] as examples.
-#+END_+QUOTE
-TIP=
 See [[file:modules/features/hyprland.nix][hyprland.nix]] and [[file:modules/features/stylix.nix][stylix.nix]] as examples.
 #+END_QUOTE
 
