@@ -5,6 +5,8 @@
       inputs.spicetify.homeManagerModules.default
     ];
 
+    nixpkgs.config.allowUnfree = true;
+
     programs.spicetify = {
       enable = true;
       wayland = true;

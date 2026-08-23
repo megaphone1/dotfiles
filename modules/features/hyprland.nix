@@ -159,7 +159,6 @@
         editor = { _var = "emacs"; };
         browser = { _var = "firefox"; };
         terminal = { _var = "ghostty -e fish"; };
-        terminalAlt = { _var = "alacritty"; };
         fileManager = { _var = "ghostty -e yazi"; };
         launcher = { _var = "noctalia msg panel-toggle launcher"; };
         emojis = { _var = "noctalia msg panel-toggle launcher /emo"; };
@@ -180,12 +179,6 @@
             _args = [
               (lib.generators.mkLuaInline "mod .. \" + RETURN\"")
               (lib.generators.mkLuaInline "hl.dsp.exec_cmd(terminal)")
-            ];
-          }
-          {
-            _args = [
-              (lib.generators.mkLuaInline "mod .. \" + SHIFT + RETURN\"")
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(terminalAlt)")
             ];
           }
           {
