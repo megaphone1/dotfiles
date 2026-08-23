@@ -31,6 +31,7 @@
         self.nixosModules.ghostty
         self.nixosModules.hyprland
         self.nixosModules.noctalia
+        self.nixosModules.pipewire
         self.nixosModules.neovim
         self.nixosModules.yazi
 
