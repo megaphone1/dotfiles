@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ inputs, ... }: {
   flake.homeModules.emacs =
     {
       lib,
@@ -51,7 +51,6 @@
           epkgs.yaml-mode
           epkgs.lua-mode
           epkgs.go-mode
-          epkgs.gdscript-mode
         ];
       };
 
@@ -87,7 +86,6 @@
             mkdir -p ${orgRoamDirectory}
           '';
         };
-
 
       home.file.".config/emacs/early-init.el".text = ''
         (tooltip-mode -1)
@@ -381,8 +379,6 @@
 
         (add-hook 'go-mode-hook 'eglot-ensure)
         (add-hook 'go-mode-hook #'dotfiles/go-hook)
-
-        (add-hook 'gdscript-mode 'eglot-ensure)
       '';
     };
 }
