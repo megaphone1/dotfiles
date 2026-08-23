@@ -11,6 +11,7 @@
       self.homeModules.starship
       self.homeModules.hyprland
       self.homeModules.noctalia
+      self.homeModules.spicetify
       self.homeModules.firefox
       self.homeModules.golang
       self.homeModules.yazi
