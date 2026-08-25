@@ -12,7 +12,6 @@
       self.homeModules.noctalia
       self.homeModules.spicetify
       self.homeModules.golang
-      self.homeModules.fetch
       self.homeModules.yazi
       self.homeModules.zen
     ];
