@@ -45,13 +45,6 @@
         wl-clipboard
         cliphist
       ];
-
-      services.getty.autologinUser = "${config.user.name}";
-      environment.loginShellInit = ''
-        if [ "$(tty)" = "/dev/tty1" ]; then
-          exec start-hyprland
-        fi
-      '';
     };
 
   flake.homeModules.hyprland = { lib, pkgs, ... }: {
