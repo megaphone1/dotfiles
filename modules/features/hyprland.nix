@@ -278,6 +278,30 @@
               (lib.generators.mkLuaInline "hl.dsp.focus({ direction = \"down\" })")
             ];
           }
+          {
+            _args = [
+              (lib.generators.mkLuaInline "mod .. \" + SHIFT + left\"")
+              (lib.generators.mkLuaInline "hl.dsp.window.swap({ direction = \"l\"})")
+            ];
+          }
+          {
+            _args = [
+              (lib.generators.mkLuaInline "mod .. \" + SHIFT + right\"")
+              (lib.generators.mkLuaInline "hl.dsp.window.swap({ direction = \"r\"})")
+            ];
+          }
+          {
+            _args = [
+              (lib.generators.mkLuaInline "mod .. \" + SHIFT + up\"")
+              (lib.generators.mkLuaInline "hl.dsp.window.swap({ direction = \"u\"})")
+            ];
+          }
+          {
+            _args = [
+              (lib.generators.mkLuaInline "mod .. \" + SHIFT + down\"")
+              (lib.generators.mkLuaInline "hl.dsp.window.swap({ direction = \"d\"})")
+            ];
+          }
         ];
 
         on = {
