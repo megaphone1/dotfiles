@@ -5,11 +5,33 @@
 }:
 {
   flake.nixosModules.noctalia =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
+      imports = [
+        inputs.noctalia-greeter.nixosModules.default
+      ];
+
       environment.systemPackages = [
         inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
+
+      programs.noctalia-greeter = {
+        enable = true;
+        settings = {
+          session = {
+            default = "Hyprland";
+          };
+          user = {
+            default = "${config.user.name}";
+          };
+          appearance = {
+            hide_logo = true;
+          };
+          keyboard = {
+            layout = "us";
+          };
+        };
+      };
     };
 
   flake.homeModules.noctalia =
