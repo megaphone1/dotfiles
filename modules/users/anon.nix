@@ -19,6 +19,7 @@
     config = {
       user = {
         name = "anon";
+        icon = "${self/docs/avatar.png}";
         fullName = "Anonymous";
         email = "anon@devnull.com";
         key = "ABCD1234";
