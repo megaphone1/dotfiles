@@ -150,7 +150,7 @@
 
         mod = { _var = "SUPER"; };
         editor = { _var = "emacs"; };
-        browser = { _var = "firefox"; };
+        browser = { _var = "zen-beta"; };
         terminal = { _var = "ghostty -e fish"; };
         fileManager = { _var = "ghostty -e yazi"; };
         launcher = { _var = "noctalia msg panel-toggle launcher"; };

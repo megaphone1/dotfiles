@@ -13,6 +13,7 @@
       self.homeModules.spicetify
       self.homeModules.golang
       self.homeModules.yazi
+      self.homeModules.zen
     ];
 
     config = {
