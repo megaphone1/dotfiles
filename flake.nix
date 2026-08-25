@@ -47,9 +47,6 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
-    noctalia-qs.inputs.nixpkgs.follows = "nixpkgs";
-
     ghostty.url = "github:ghostty-org/ghostty";
     ghostty.inputs.nixpkgs.follows = "nixpkgs";
 
