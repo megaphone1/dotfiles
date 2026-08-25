@@ -144,7 +144,11 @@ The system will have generated two files that specify your machine:
 
 Rename the =configuration.nix= file to your desired host name and combine the settings in =hardware-configuration.nix= into the single file.
 
-Refer to the [[file:./modules/hosts/qemu.nix][qemu.nix]] host file as an example. The final product should look something like this:
+#+BEGIN_QUOTE
+💡 =TIP=
+See the [[file:./modules/hosts/qemu.nix][qemu.nix]] host file as an example.
+#+END_QUOTE
+
 
 #+BEGIN_SRC nix
 {
