@@ -49,6 +49,7 @@
           epkgs.docker
           epkgs.dockerfile-mode
           epkgs.yaml-mode
+          epkgs.json-mode
           epkgs.lua-mode
           epkgs.go-mode
         ];
