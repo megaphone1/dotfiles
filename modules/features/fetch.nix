@@ -11,12 +11,15 @@
 
         logo = {
           type = "kitty";
-          source = "${self/docs/fetch.png}";
+          source = "${self}/docs/fetch.png";
           height = 16;
           width = 32;
         };
 
         modules = [
+          "break"
+          "break"
+          "break"
           {
             type = "custom";
             key = "╭─────────────────────────────────────────╮";
