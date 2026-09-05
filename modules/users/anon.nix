@@ -1,5 +1,5 @@
-{ self, ... }: {
-  flake.homeConfigurations.anon = { ... }: {
+{self, ...}: {
+  flake.homeConfigurations.anon = {...}: {
     imports = [
       self.homeModules.user
       self.homeModules.stylix
