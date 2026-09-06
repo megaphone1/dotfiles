@@ -3,6 +3,9 @@
   inputs,
   ...
 }:
+let
+  system = "x86_64-linux";
+in
 {
   flake.nixosConfigurations.qemu = inputs.nixpkgs.lib.nixosSystem {
     modules = [
@@ -39,8 +42,9 @@
       ];
 
       home-manager = {
-        useGlobalPkgs = true;
+        useGlobalPkgs = false;
         useUserPackages = true;
+        extraSpecialArgs = { inherit system; };
         backupFileExtension = "backup";
         users.${config.user.name} = self.homeConfigurations.${config.user.name};
       };
@@ -85,7 +89,7 @@
         }
       ];
 
-      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      nixpkgs.hostPlatform = lib.mkDefault system;
       system.stateVersion = "26.05";
     };
 }
