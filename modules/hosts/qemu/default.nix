@@ -2,11 +2,9 @@
   self,
   inputs,
   ...
-}:
-let
+}: let
   system = "x86_64-linux";
-in
-{
+in {
   flake.nixosConfigurations.qemu = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit system;
@@ -15,7 +13,7 @@ in
     modules = [
       self.nixosModules.qemuConfiguration
       self.nixosModules.qemuHardware
+      self.nixosModules.qemuUsers
     ];
   };
-
 }
