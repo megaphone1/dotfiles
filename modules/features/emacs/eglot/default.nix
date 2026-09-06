@@ -11,8 +11,6 @@
       self.homeModules._emacs_eglot_nix
       self.homeModules._emacs_eglot_docker
       self.homeModules._emacs_eglot_golang
-      self.homeModules._emacs_eglot_html
-      self.homeModules._emacs_eglot_yaml
     ];
 
     options.emacs = {
