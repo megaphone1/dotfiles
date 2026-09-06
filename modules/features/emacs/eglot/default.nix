@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.homeModules.emacsEglot = {
+  flake.homeModules._emacs_eglot = {
     lib,
     pkgs,
     config,
@@ -8,11 +8,11 @@
     cfg = config.emacs;
   in {
     imports = [
-      self.homeModules.emacsEglotNix
-      self.homeModules.emacsEglotDocker
-      self.homeModules.emacsEglotGolang
-      self.homeModules.emacsEglotHtml
-      self.homeModules.emacsEglotYaml
+      self.homeModules._emacs_eglot_nix
+      self.homeModules._emacs_eglot_docker
+      self.homeModules._emacs_eglot_golang
+      self.homeModules._emacs_eglot_html
+      self.homeModules._emacs_eglot_yaml
     ];
 
     options.emacs = {

@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.emacsEglotYaml = {
+  flake.homeModules._emacs_eglot_yaml = {
     lib,
     pkgs,
     config,

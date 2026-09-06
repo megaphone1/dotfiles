@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.emacsEglotDocker = {
+  flake.homeModules._emacs_eglot_docker = {
     lib,
     pkgs,
     config,

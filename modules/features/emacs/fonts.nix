@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.emacsFonts = {
+  flake.homeModules._emacs_fonts = {
     lib,
     pkgs,
     config,

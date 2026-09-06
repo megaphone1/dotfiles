@@ -3,19 +3,18 @@
     lib,
     pkgs,
     config,
-    system,
     ...
   }: let
     cfg = config.emacs;
     emacsPkg = pkgs.emacs-pgtk;
   in {
     imports = [
-      self.homeModules.emacsKeys
-      self.homeModules.emacsInterface
-      self.homeModules.emacsFonts
-      self.homeModules.emacsGit
-      self.homeModules.emacsOrg
-      self.homeModules.emacsEglot
+      self.homeModules._emacs_keys
+      self.homeModules._emacs_interface
+      self.homeModules._emacs_fonts
+      self.homeModules._emacs_git
+      self.homeModules._emacs_org
+      self.homeModules._emacs_eglot
     ];
 
     options.emacs = {

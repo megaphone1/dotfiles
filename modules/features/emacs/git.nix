@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.emacsGit = {
+  flake.homeModules._emacs_git = {
     lib,
     pkgs,
     config,

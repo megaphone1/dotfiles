@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.emacsKeys = {
+  flake.homeModules._emacs_keys = {
     lib,
     pkgs,
     config,
@@ -60,16 +60,16 @@
 
           (general-create-definer dotfiles/leader
             :keymaps `(normal insert visual emacs)
-            :prefix "${cfg.keys.leader}"
-            :global-prefix "C-${cfg.keys.leader}")
+            :prefix "${cfg.leader}"
+            :global-prefix "C-${cfg.leader}")
 
           (setq general-evil-setup t)
         '';
 
         extraInitPostlude = ''
-          ${cfg.keys.macro}
+          ${cfg.extraMacros}
 
-          (dotfiles/leader ${cfg.keys.bind})
+          (dotfiles/leader ${cfg.extraBinds})
         '';
 
         extraBinds = ''

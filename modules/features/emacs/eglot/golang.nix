@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.emacsEglotGolang = {
+  flake.homeModules._emacs_eglot_golang = {
     lib,
     pkgs,
     config,

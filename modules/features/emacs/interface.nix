@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeModules.emacsInterface = {
+  flake.homeModules._emacs_interface = {
     lib,
     pkgs,
     config,

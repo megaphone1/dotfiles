@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules.emacsEglotNix =
+  flake.homeModules._emacs_eglot_nix =
     {
       lib,
       pkgs,
