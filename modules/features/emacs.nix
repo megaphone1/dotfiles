@@ -4,12 +4,17 @@
       lib,
       pkgs,
       config,
+      system,
       ...
     }:
     let
       emacsPkg = pkgs.emacs-pgtk;
     in
     {
+      imports = [
+        inputs.nur.legacyPackages.${system}.repos.rycee.hmModules.emacs-init
+      ];
+
       services.emacs = {
         enable = true;
         package = emacsPkg;
