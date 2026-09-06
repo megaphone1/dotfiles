@@ -1,4 +1,4 @@
-{ ... }: {
+{ self, ... }: {
   flake.homeModules.emacsEglot =
     {
       lib,
@@ -10,13 +10,23 @@
       cfg = config.emacs;
     in
     {
+      imports = [
+        self.homeModules.emacsEglotNix
+      ];
+
+      options.emacs = {
+        extraServerPrograms = lib.mkOption {
+          type = lib.types.lines;
+          default = "";
+          description = ''
+            Additional `eglot-server-programs' to be added.
+          '';
+        };
+      };
+
       config = lib.mkIf cfg.enable {
         emacs = {
           extraPackages = with pkgs; [
-            nil
-            alejandra
-            dockerfmt
-            dockerfile-language-server
             vscode-langservers-extracted
             yaml-language-server
             lua-language-server
@@ -24,10 +34,6 @@
 
           extraEmacsPackages = with pkgs.emacsPackages; [
             eglot
-            nix-mode
-            nix-ts-mode
-            docker
-            dockerfile-mode
             yaml-mode
             json-mode
             lua-mode
@@ -37,29 +43,6 @@
           init = ''
             (defun dotfiles/eglot-organize-imports ()
               (call-interactively 'eglot-code-action-organize-imports))
-
-            (add-hook 'nix-mode-hook 'eglot-ensure)
-            (with-eval-after-load 'eglot
-              (add-to-list 'eglot-server-programs
-            	       '((nix-mode nix-ts-mode) . ("nil"))))
-
-            (setq eglot-workspace-configuration '(:nix (:formattingProvider "alejandra")))
-
-            (defun dotfiles/nix-hook ()
-              (add-hook 'before-save-hook 'eglot-format-buffer)
-              (add-hook 'before-save-hook #'dotfiles/eglot-organize-imports nil t))
-
-            (add-hook 'nix-mode-hook #'dotfiles/nix-hook)
-            (with-eval-after-load 'eglot
-              (add-to-list 'eglot-server-programs
-            	       '((dockerfile-mode dockerfile-ts-mode) . ("docker-langserver" "--stdio"))))
-
-            (defun dotfiles/docker-hook ()
-              (add-hook 'before-save-hook 'eglot-format-buffer)
-              (add-hook 'before-save-hook #'dotfiles/eglot-organize-imports nil t))
-
-            (add-hook 'dockerfile-mode-hook 'eglot-ensure)
-            (add-hook 'dockerfile-mode-hook #'dotfiles/docker-hook)
 
             (with-eval-after-load 'eglot
               (add-to-list 'eglot-server-programs
@@ -103,6 +86,13 @@
 
             (add-hook 'go-mode-hook 'eglot-ensure)
             (add-hook 'go-mode-hook #'dotfiles/go-hook)
+          '';
+
+          initPostlude = ''
+            (with-eval-after-load 'eglot
+              (add-to-list 'eglot-server-programs
+                  ${cfg.eglot.extraServerPrograms}
+                ))
           '';
 
           keys.bind = ''
