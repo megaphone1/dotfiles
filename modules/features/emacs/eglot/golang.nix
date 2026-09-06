@@ -8,7 +8,19 @@
     cfg = config.emacs;
   in {
     config = lib.mkIf cfg.enable {
+      programs.go = {
+        enable = true;
+        env = {
+          goPath = "~/.local/share/go";
+          goBin = "~/.local/share/go/bin";
+        };
+      };
+
       emacs = {
+        extraPackages = with pkgs; [
+          gopls
+        ];
+
         extraEmacsPackages = with pkgs.emacsPackages; [
           go-mode
         ];
