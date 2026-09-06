@@ -1,22 +1,22 @@
 { ... }:
 {
   flake.homeModules.emacsInterface =
-    { lib, config, ... }:
+    { lib, pkgs, config, ... }:
     let
       cfg = config.emacs;
     in
     {
       config = lib.mkIf cfg.enable {
-        config.emacs = {
-          extraEmacsPackages = epkgs: [
-            epkgs.ivy
-            epkgs.ivy-rich
-            epkgs.ivy-posframe
-            epkgs.ivy-prescient
-            epkgs.counsel
-            epkgs.company
-            epkgs.doom-themes
-            epkgs.doom-modeline
+        emacs = {
+          extraEmacsPackages = with pkgs.emacsPackages; [
+            ivy
+            ivy-rich
+            ivy-posframe
+            ivy-prescient
+            counsel
+            company
+            doom-themes
+            doom-modeline
           ];
 
           earlyInit = ''
@@ -27,6 +27,12 @@
 
             (setq use-short-answers t)
             (setq scroll-conservatively 101)
+
+            (setq inhibit-startup-screen t)
+            (setq native-comp-async-report-warnings-errors nil)
+            (setq make-backup-files nil
+                  auto-save-default nil
+                  create-lockfiles nil)
 
             (setq mouse-wheel-follow-mouse t
                   mouse-wheel-progressive-speed t

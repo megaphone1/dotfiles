@@ -11,27 +11,27 @@
     in
     {
       config = lib.mkIf cfg.enable {
-        config.emacs = {
-          extraPackages = [
-            pkgs.nil
-            pkgs.alejandra
-            pkgs.dockerfmt
-            pkgs.dockerfile-language-server
-            pkgs.vscode-langservers-extracted
-            pkgs.yaml-language-server
-            pkgs.lua-language-server
+        emacs = {
+          extraPackages = with pkgs; [
+            nil
+            alejandra
+            dockerfmt
+            dockerfile-language-server
+            vscode-langservers-extracted
+            yaml-language-server
+            lua-language-server
           ];
 
-          extraEmacsPackages = epkgs: [
-            epkgs.eglot
-            epkgs.nix-mode
-            epkgs.nix-ts-mode
-            epkgs.docker
-            epkgs.dockerfile-mode
-            epkgs.yaml-mode
-            epkgs.json-mode
-            epkgs.lua-mode
-            epkgs.go-mode
+          extraEmacsPackages = with pkgs.emacsPackages; [
+            eglot
+            nix-mode
+            nix-ts-mode
+            docker
+            dockerfile-mode
+            yaml-mode
+            json-mode
+            lua-mode
+            go-mode
           ];
 
           init = ''

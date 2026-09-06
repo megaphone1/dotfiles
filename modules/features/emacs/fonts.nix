@@ -14,19 +14,19 @@
       config = lib.mkIf cfg.enable {
         fonts.fontconfig.enable = true;
 
-        config.emacs = {
-          extraPackages = [
-            pkgs.fira-code-symbols
-            pkgs.emacs-all-the-icons-fonts
+        emacs = {
+          extraPackages = with pkgs; [
+            fira-code-symbols
+            emacs-all-the-icons-fonts
           ];
 
-          extraEmacsPackages = epkgs: [
-            epkgs.emojify
-            epkgs.ligature
-            epkgs.nerd-icons
-            epkgs.all-the-icons
-            epkgs.all-the-icons-dired
-            epkgs.all-the-icons-ivy-rich
+          extraEmacsPackages = with pkgs.emacsPackages; [
+            emojify
+            ligature
+            nerd-icons
+            all-the-icons
+            all-the-icons-dired
+            all-the-icons-ivy-rich
           ];
 
           init = ''

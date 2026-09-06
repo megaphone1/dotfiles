@@ -1,7 +1,7 @@
 { self, inputs, ... }:
 {
   flake.homeModules.emacsKeys =
-    { lib, config, ... }:
+    { lib, pkgs, config, ... }:
     let
       cfg = config.emacs;
     in
@@ -33,15 +33,15 @@
       };
 
       config = lib.mkIf cfg.enable {
-        config.emacs = {
-          extraEmacsPackages = epkgs: [
-            epkgs.evil
-            epkgs.evil-collection
-            epkgs.evil-surround
-            epkgs.evil-nerd-commenter
-            epkgs.hydra
-            epkgs.general
-            epkgs.which-key
+        emacs = {
+          extraEmacsPackages = with pkgs.emacsPackages; [
+            evil
+            evil-collection
+            evil-surround
+            evil-nerd-commenter
+            hydra
+            general
+            which-key
           ];
 
           initPrelude = ''

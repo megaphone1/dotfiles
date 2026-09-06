@@ -57,7 +57,7 @@
         };
 
         extraPackages = lib.mkOption {
-          type = lib.types.listOf lib.types.packages;
+          type = lib.types.listOf lib.types.package;
           default = [ ];
           description = ''
             Extra packages to add to home.packages
@@ -65,7 +65,7 @@
         };
 
         extraEmacsPackages = lib.mkOption {
-          type = lib.types.listOf lib.types.packages;
+          type = lib.types.listOf lib.types.package;
           default = [ ];
           description = ''
             Extra packages to add to programs.emacs.extraPackages
@@ -82,26 +82,18 @@
         programs.emacs = {
           enable = true;
           package = emacsPkg;
-          extraPackages = epkgs: [ ] ++ cfg.extraEmacsPackages;
+          extraPackages = cfg.extraEmacsPackages;
         };
 
-        home.packages = [ ] ++ cfg.extraPackages;
+        home.packages = cfg.extraPackages;
 
         home.file.".config/emacs/early-init.el".text = ''
-          (setq inhibit-startup-screen t)
-          (setq native-comp-async-report-warnings-errors nil)
-          (setq make-backup-files nil
-                auto-save-default nil
-                create-lockfiles nil)
-
           ${cfg.earlyInit}
         '';
 
         home.file.".config/emacs/init.el".text = ''
           ${cfg.initPrelude}
-
           ${cfg.init}
-
           ${cfg.initPostlude}
         '';
       };

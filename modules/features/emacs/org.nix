@@ -24,10 +24,10 @@
           '';
         };
 
-        config.emacs = {
-          extraEmacsPackages = epkgs: [
-            epkgs.org
-            epkgs.org-modern
+        emacs = {
+          extraEmacsPackages = with pkgs.emacsPackages; [
+            org
+            org-modern
           ];
 
           init = ''
