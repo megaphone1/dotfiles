@@ -30,9 +30,7 @@
 
       emacs = {
         enable = true;
-        keys = {
-          leader = "SPC";
-        };
+        leader = "SPC";
       };
 
       home.stateVersion = "26.05";
