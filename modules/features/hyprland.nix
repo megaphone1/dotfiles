@@ -1,58 +1,56 @@
-{
-  inputs,
-  ...
-}:
-{
-  flake.nixosModules.hyprland =
-    {
-      pkgs,
-      config,
-      ...
-    }:
-    {
-      programs.hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        portalPackage =
-          inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-      };
+{inputs, ...}: {
+  flake.nixosModules.hyprland = {
+    pkgs,
+    config,
+    ...
+  }: {
+    programs.hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
 
-      hardware.graphics = {
-        package = pkgs.mesa;
-      };
+    hardware.graphics = {
+      package = pkgs.mesa;
+    };
 
-      services.seatd = {
-        enable = true;
-      };
+    services.seatd = {
+      enable = true;
+    };
 
-      users.users.${config.user.name} = {
-        extraGroups = [
-          "video"
-          "seat"
-        ];
-      };
-
-      security.polkit.enable = true;
-
-      environment.sessionVariables = {
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        NIXOS_OZONE_WL = "1";
-        MOZ_ENABLE_WAYLAND = "1";
-        WLR_NO_HARDWARE_CURSORS = "1";
-      };
-
-      environment.systemPackages = with pkgs; [
-        wl-clipboard
-        cliphist
+    users.users.${config.user.name} = {
+      extraGroups = [
+        "video"
+        "seat"
       ];
     };
 
-  flake.homeModules.hyprland = { lib, pkgs, ... }: {
-    home.sessionVariables = {
-        XCURSOR_SIZE = 24;
-        HYPRCURSOR_SIZE = 24;
+    security.polkit.enable = true;
+
+    environment.sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      NIXOS_OZONE_WL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
-    
+
+    environment.systemPackages = with pkgs; [
+      wl-clipboard
+      cliphist
+    ];
+  };
+
+  flake.homeModules.hyprland = {
+    lib,
+    pkgs,
+    ...
+  }: {
+    home.sessionVariables = {
+      XCURSOR_SIZE = 24;
+      HYPRCURSOR_SIZE = 24;
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -70,39 +68,39 @@
 
           input = {
             kb_layout = "us";
-        	  kb_variant = "";
-        	  kb_model = "";
-        	  kb_options = "";
-        	  kb_rules = "";
-        	  follow_mouse = 1;
-        	  sensitivity = 0;
+            kb_variant = "";
+            kb_model = "";
+            kb_options = "";
+            kb_rules = "";
+            follow_mouse = 1;
+            sensitivity = 0;
 
-        	  touchpad = {
-        	    natural_scroll = false;
-        	  };
+            touchpad = {
+              natural_scroll = false;
+            };
           };
 
           general = {
             gaps_in = 5;
-        	  gaps_out = 10;
+            gaps_out = 10;
           };
 
           decoration = {
             rounding = 20;
-        	  rounding_power = 2;
+            rounding_power = 2;
 
             shadow = {
-        	    enabled = true;
-        	    range = 4;
-        	    render_power = 3;
-        	  };
+              enabled = true;
+              range = 4;
+              render_power = 3;
+            };
 
-        	  blur = {
-        	      enabled = true;
-        	      size = 3;
-        	      passes = 2;
-        	      vibrancy = 0.1696;
-        	  };
+            blur = {
+              enabled = true;
+              size = 3;
+              passes = 2;
+              vibrancy = 0.1696;
+            };
           };
         };
 
@@ -115,7 +113,7 @@
 
         layer_rule = {
           name = "noctalia";
-          match = { namespace = "noctalia-background-.*$"; };
+          match = {namespace = "noctalia-background-.*$";};
           ignore_alpha = 0.5;
           blur = true;
           blur_popups = true;
@@ -125,47 +123,46 @@
           {
             name = "supress-maximize-events";
             suppress_event = "maximize";
-            match = { class = ".*"; };
+            match = {class = ".*";};
           }
           {
             name = "fix-xwayland-drags";
             no_focus = true;
             match = {
               class = "^$";
-        	    title = "^$";
-        	    xwayland = true;
-        	    float = true;
-        	    fullscreen = false;
-        	    pin = false;
+              title = "^$";
+              xwayland = true;
+              float = true;
+              fullscreen = false;
+              pin = false;
             };
-
           }
           {
             name = "move-hyprland-run";
             move = "20 monitor_h-120";
             float = true;
-            match = { class = "hyprland-run"; };
+            match = {class = "hyprland-run";};
           }
         ];
 
-        mod = { _var = "SUPER"; };
-        editor = { _var = "emacs"; };
-        browser = { _var = "zen-beta"; };
-        terminal = { _var = "ghostty -e fish"; };
-        fileManager = { _var = "ghostty -e yazi"; };
-        launcher = { _var = "noctalia msg panel-toggle launcher"; };
-        emojis = { _var = "noctalia msg panel-toggle launcher /emo"; };
-        wallpaper = { _var = "noctalia msg panel-toggle wallpaper"; };
-        wallpaperRandom = { _var = "noctalia msg wallpaper-random"; };
-        screenshot = { _var = "noctalia msg screenshot-fullscreen"; };
-        screenshotRegion = { _var = "noctalia msg screenshot-region"; };
+        mod = {_var = "SUPER";};
+        editor = {_var = "emacs";};
+        browser = {_var = "zen-beta";};
+        terminal = {_var = "ghostty -e fish";};
+        fileManager = {_var = "ghostty -e yazi";};
+        launcher = {_var = "noctalia msg panel-toggle launcher";};
+        emojis = {_var = "noctalia msg panel-toggle launcher /emo";};
+        wallpaper = {_var = "noctalia msg panel-toggle wallpaper";};
+        wallpaperRandom = {_var = "noctalia msg wallpaper-random";};
+        screenshot = {_var = "noctalia msg screenshot-fullscreen";};
+        screenshotRegion = {_var = "noctalia msg screenshot-region";};
 
         bind = [
           {
             _args = [
               (lib.generators.mkLuaInline "mod .. \" + Q\"")
               (lib.generators.mkLuaInline "hl.dsp.window.close()")
-              { locked = true; }
+              {locked = true;}
             ];
           }
           {

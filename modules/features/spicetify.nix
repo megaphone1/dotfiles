@@ -1,6 +1,5 @@
-{ inputs, ... }:
-{
-  flake.homeModules.spicetify = { ... }: {
+{inputs, ...}: {
+  flake.homeModules.spicetify = {...}: {
     imports = [
       inputs.spicetify.homeManagerModules.default
     ];

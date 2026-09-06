@@ -1,5 +1,8 @@
-{ self, lib, ... }:
-let
+{
+  self,
+  lib,
+  ...
+}: let
   myUserOptions = {
     name = lib.mkOption {
       type = lib.types.str;
@@ -36,13 +39,12 @@ let
       default = "America/Edmonton";
     };
   };
-in
-{
+in {
   flake.homeModules.user = {
     options.user = myUserOptions;
   };
 
-  flake.nixosModules.user = { config, ... }: {
+  flake.nixosModules.user = {config, ...}: {
     options.user = myUserOptions;
 
     config = {
