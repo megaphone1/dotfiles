@@ -1,4 +1,4 @@
-{self, ...}: {
+{...}: {
   flake.homeModules._emacs_eglot = {
     lib,
     pkgs,
@@ -7,11 +7,6 @@
   }: let
     cfg = config.emacs;
   in {
-    imports = [
-      self.homeModules._emacs_eglot_nix
-      self.homeModules._emacs_eglot_docker
-    ];
-
     options.emacs = {
       extraServerPrograms = lib.mkOption {
         type = lib.types.lines;

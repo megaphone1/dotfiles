@@ -15,6 +15,7 @@
       self.homeModules.fetch
       self.homeModules.yazi
       self.homeModules.zen
+      self.homeModules.nix
     ];
 
     config = {
