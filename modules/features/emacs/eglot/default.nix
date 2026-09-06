@@ -10,7 +10,6 @@
     imports = [
       self.homeModules._emacs_eglot_nix
       self.homeModules._emacs_eglot_docker
-      self.homeModules._emacs_eglot_golang
     ];
 
     options.emacs = {

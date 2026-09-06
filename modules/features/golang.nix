@@ -1,22 +1,28 @@
 {...}: {
-  flake.homeModules._emacs_eglot_golang = {
+  flake.homeModules.golang = {
     lib,
     pkgs,
     config,
     ...
   }: let
-    cfg = config.emacs;
+    myCfg = config.golang;
+    myEmacsCfg = config.emacs;
+    myUserName = config.user.name;
   in {
-    config = lib.mkIf cfg.enable {
+    options.golang = {
+      enable = lib.mkEnableOption "";
+    };
+
+    config = lib.mkIf myCfg.enable {
       programs.go = {
         enable = true;
         env = {
-          goPath = "~/.local/share/go";
-          goBin = "~/.local/share/go/bin";
+          goPath = "/home/${myUserName}/.local/share/go";
+          goBin = "/home/${myUserName}/.local/share/go/bin";
         };
       };
 
-      emacs = {
+      emacs = lib.mkIf myEmacsCfg.enable {
         extraPackages = with pkgs; [
           gopls
         ];
