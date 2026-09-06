@@ -23,7 +23,7 @@
           '((dockerfile-mode dockerfile-ts-mode) . ("docker-langserver" "--stdio"))
         '';
 
-        init = ''
+        extraInit = ''
           (with-eval-after-load 'eglot
             (add-to-list 'eglot-server-programs
           	       '((dockerfile-mode dockerfile-ts-mode) . ("docker-langserver" "--stdio"))))
@@ -37,7 +37,7 @@
 
         '';
 
-        keys.bind = ''
+        extraBinds = ''
           "n" '(:ignore t :which-key "Containers")
           "nd" '(docker :which-key "Docker")
         '';

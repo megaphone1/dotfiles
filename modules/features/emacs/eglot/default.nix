@@ -31,19 +31,19 @@
           eglot
         ];
 
-        init = ''
+        extraInit = ''
           (defun dotfiles/eglot-organize-imports ()
             (call-interactively 'eglot-code-action-organize-imports))
         '';
 
-        initPostlude = ''
+        extraInitPostlude = ''
           (with-eval-after-load 'eglot
             (add-to-list 'eglot-server-programs
                 ${cfg.extraServerPrograms}
               ))
         '';
 
-        keys.bind = ''
+        extraBinds = ''
           "l" '(:ignore t :which-key "Eglot")
           "ll" '(eglot :which-key "Eglot")
           "lr" '(eglot-rename :which-key "Rename")

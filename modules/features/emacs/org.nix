@@ -30,7 +30,7 @@
             org-modern
           ];
 
-          init = ''
+          extraInit = ''
             (setq org-src-fontify-natively t
                   org-src-tabs-act-natively t
                   org-hide-emphasis-markers t
@@ -74,7 +74,7 @@
             (add-hook 'org-mode-hook #'org-modern-indent-mode 90)
           '';
 
-          keys.bind = ''
+          extraBinds = ''
             "o" '(:ignore t :which-key "Org")
             "oe" '(org-export-dispatch :which-key "Export")
             "ot" '(org-babel-tangle :which-key "Tangle")

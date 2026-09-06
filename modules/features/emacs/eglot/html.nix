@@ -16,7 +16,7 @@
       '((html-mode) . ("vscode-html-language-server" "--stdio"))
       '';
 
-      init = ''
+      extraInit = ''
         (defun dotfiles/html-hook ()
           (add-hook 'before-save-hook 'eglot-format-buffer))
 

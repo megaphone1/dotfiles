@@ -17,7 +17,7 @@
           '((go-mode go-ts-mode) . ("gopls"))
         '';
 
-        init = ''
+        extraInit = ''
           (defun dotfiles/go-hook ()
             (add-hook 'before-save-hook 'eglot-format-buffer)
             (add-hook 'before-save-hook #'dotfiles/eglot-organize-imports nil t))

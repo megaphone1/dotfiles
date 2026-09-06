@@ -21,7 +21,7 @@
           '((yaml-mode yaml-ts-mode) . ("yaml-language-server" "--stdio"))))
         '';
 
-        init = ''
+        extraInit = ''
           (defun dotfiles/yaml-hook ()
             (add-hook 'before-save-hook 'eglot-format-buffer)
             (add-hook 'before-save-hook #'dotfiles/eglot-organize-imports nil t))

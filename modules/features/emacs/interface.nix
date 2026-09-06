@@ -20,7 +20,7 @@
           doom-modeline
         ];
 
-        earlyInit = ''
+        extraEarlyInit = ''
           (tooltip-mode -1)
           (tool-bar-mode -1)
           (menu-bar-mode -1)
@@ -41,7 +41,7 @@
 
         '';
 
-        init = ''
+        extraInit = ''
           (setq display-line-numbers-type 'relative
                 display-line-numbers-width 1
                 display-line-numbers-grow-only t)
@@ -77,40 +77,38 @@
             "l" 'dired-find-file)
         '';
 
-        keys = {
-          macro = ''
-            (defhydra hydra-resize-frame (:timeout 4)
-              "Scale the current frame."
-              ("h" shrink-window-horizontally "Left")
-              ("j" enlarge-window "Down")
-              ("k" shrink-window "Up")
-              ("l" enlarge-window-horizontally "Right")
-              ("f" nil "Finished" :exit t))
-          '';
+        extraMacros = ''
+          (defhydra hydra-resize-frame (:timeout 4)
+            "Scale the current frame."
+            ("h" shrink-window-horizontally "Left")
+            ("j" enlarge-window "Down")
+            ("k" shrink-window "Up")
+            ("l" enlarge-window-horizontally "Right")
+            ("f" nil "Finished" :exit t))
+        '';
 
-          bind = ''
-            "t" '(:ignore t :which-key "Toggle / Tweak")
-            "tl" '(display-line-numbers-mode :which-key "Line Numbers")
+        extraBinds = ''
+          "t" '(:ignore t :which-key "Toggle / Tweak")
+          "tl" '(display-line-numbers-mode :which-key "Line Numbers")
 
-            "w" '(:ignore t :which-key "Windows")
-            "ww" '(window-swap-states :which-key "Swap")
-            "wc" '(delete-window :which-key "Close")
-            "wh" '(windmove-left :which-key "Left")
-            "wj" '(windmove-down :which-key "Down")
-            "wk" '(windmove-up :which-key "Up")
-            "wl" '(windmove-right :which-key "Right")
+          "w" '(:ignore t :which-key "Windows")
+          "ww" '(window-swap-states :which-key "Swap")
+          "wc" '(delete-window :which-key "Close")
+          "wh" '(windmove-left :which-key "Left")
+          "wj" '(windmove-down :which-key "Down")
+          "wk" '(windmove-up :which-key "Up")
+          "wl" '(windmove-right :which-key "Right")
 
-            "ws" '(:ignore t :which-key "Split")
-            "wsj" '(split-window-below :which-key "Below")
-            "wsl" '(split-window-right :which-key "Right")
+          "ws" '(:ignore t :which-key "Split")
+          "wsj" '(split-window-below :which-key "Below")
+          "wsl" '(split-window-right :which-key "Right")
 
-            "wr" '(hydra-resize-frame/body :which-key "Resize")
+          "wr" '(hydra-resize-frame/body :which-key "Resize")
 
-            "d" '(:ignore t :which-key "Dired")
-            "dd" '(dired-jump :which-key "Dired")
-            "dc" '((lambda () (interactive) (dired "/etc/nixos/")) :which-key "Config")
-          '';
-        };
+          "d" '(:ignore t :which-key "Dired")
+          "dd" '(dired-jump :which-key "Dired")
+          "dc" '((lambda () (interactive) (dired "/etc/nixos/")) :which-key "Config")
+        '';
       };
     };
   };

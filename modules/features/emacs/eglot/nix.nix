@@ -27,7 +27,7 @@
             '((nix-mode nix-ts-mode) . ("nixd"))
           '';
 
-          init = ''
+          extraInit = ''
             (add-hook 'nix-mode-hook 'eglot-ensure)
 
             (setq eglot-workspace-configuration '(:nixd (:formatting (:command ["alejandra"]))))
