@@ -21,7 +21,7 @@
     options.emacs = {
       enable = lib.mkEnableOption "";
 
-      earlyInit = lib.mkOption {
+      extraEarlyInit = lib.mkOption {
         type = lib.types.lines;
         default = "";
         description = ''
@@ -29,7 +29,7 @@
         '';
       };
 
-      initPrelude = lib.mkOption {
+      extraInitPrelude = lib.mkOption {
         type = lib.types.lines;
         default = "";
         description = ''
@@ -37,7 +37,7 @@
         '';
       };
 
-      initPostlude = lib.mkOption {
+      extraInitPostlude = lib.mkOption {
         type = lib.types.lines;
         default = "";
         description = ''
@@ -45,7 +45,7 @@
         '';
       };
 
-      init = lib.mkOption {
+      extraInit = lib.mkOption {
         type = lib.types.lines;
         default = "";
         description = ''
@@ -85,13 +85,13 @@
       home.packages = [] ++ cfg.extraPackages;
 
       home.file.".config/emacs/early-init.el".text = ''
-        ${cfg.earlyInit}
+        ${cfg.extraEarlyInit}
       '';
 
       home.file.".config/emacs/init.el".text = ''
-        ${cfg.initPrelude}
-        ${cfg.init}
-        ${cfg.initPostlude}
+        ${cfg.extraInitPrelude}
+        ${cfg.extraInit}
+        ${cfg.extraInitPostlude}
       '';
     };
   };
