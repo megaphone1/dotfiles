@@ -1,101 +1,98 @@
-{ self, ... }: {
-  flake.homeModules.emacs =
-    {
-      lib,
-      pkgs,
-      config,
-      system,
-      ...
-    }:
-    let
-      cfg = config.emacs;
-      emacsPkg = pkgs.emacs-pgtk;
-    in
-    {
-      imports = [
-        self.homeModules.emacsKeys
-        self.homeModules.emacsInterface
-        self.homeModules.emacsFonts
-        self.homeModules.emacsGit
-        self.homeModules.emacsOrg
-        self.homeModules.emacsEglot
-      ];
+{self, ...}: {
+  flake.homeModules.emacs = {
+    lib,
+    pkgs,
+    config,
+    system,
+    ...
+  }: let
+    cfg = config.emacs;
+    emacsPkg = pkgs.emacs-pgtk;
+  in {
+    imports = [
+      self.homeModules.emacsKeys
+      self.homeModules.emacsInterface
+      self.homeModules.emacsFonts
+      self.homeModules.emacsGit
+      self.homeModules.emacsOrg
+      self.homeModules.emacsEglot
+    ];
 
-      options.emacs = {
-        enable = lib.mkEnableOption "";
+    options.emacs = {
+      enable = lib.mkEnableOption "";
 
-        earlyInit = lib.mkOption {
-          type = lib.types.lines;
-          default = "";
-          description = ''
-            Configuration lines to add to early-init.el
-          '';
-        };
-
-        initPrelude = lib.mkOption {
-          type = lib.types.lines;
-          default = "";
-          description = ''
-            Configurtion lines to add to the start of init.el
-          '';
-        };
-
-        initPostlude = lib.mkOption {
-          type = lib.types.lines;
-          default = "";
-          description = ''
-            Configuration lines to add to the end of init.el
-          '';
-        };
-
-        init = lib.mkOption {
-          type = lib.types.lines;
-          default = "";
-          description = ''
-            Configuration lines to add to the body of init.el
-          '';
-        };
-
-        extraPackages = lib.mkOption {
-          type = lib.types.listOf lib.types.package;
-          default = [ ];
-          description = ''
-            Extra packages to add to home.packages
-          '';
-        };
-
-        extraEmacsPackages = lib.mkOption {
-          type = lib.types.listOf lib.types.package;
-          default = [ ];
-          description = ''
-            Extra packages to add to programs.emacs.extraPackages
-          '';
-        };
+      earlyInit = lib.mkOption {
+        type = lib.types.lines;
+        default = "";
+        description = ''
+          Configuration lines to add to early-init.el
+        '';
       };
 
-      config = lib.mkIf cfg.enable {
-        services.emacs = {
-          enable = true;
-          package = emacsPkg;
-        };
-
-        programs.emacs = {
-          enable = true;
-          package = emacsPkg;
-          extraPackages = cfg.extraEmacsPackages;
-        };
-
-        home.packages = cfg.extraPackages;
-
-        home.file.".config/emacs/early-init.el".text = ''
-          ${cfg.earlyInit}
+      initPrelude = lib.mkOption {
+        type = lib.types.lines;
+        default = "";
+        description = ''
+          Configurtion lines to add to the start of init.el
         '';
+      };
 
-        home.file.".config/emacs/init.el".text = ''
-          ${cfg.initPrelude}
-          ${cfg.init}
-          ${cfg.initPostlude}
+      initPostlude = lib.mkOption {
+        type = lib.types.lines;
+        default = "";
+        description = ''
+          Configuration lines to add to the end of init.el
+        '';
+      };
+
+      init = lib.mkOption {
+        type = lib.types.lines;
+        default = "";
+        description = ''
+          Configuration lines to add to the body of init.el
+        '';
+      };
+
+      extraPackages = lib.mkOption {
+        type = lib.types.listOf lib.types.package;
+        default = [];
+        description = ''
+          Extra packages to add to home.packages
+        '';
+      };
+
+      extraEmacsPackages = lib.mkOption {
+        type = lib.types.listOf lib.types.package;
+        default = [];
+        description = ''
+          Extra packages to add to programs.emacs.extraPackages
         '';
       };
     };
+
+    config = lib.mkIf cfg.enable {
+      services.emacs = {
+        enable = true;
+        package = emacsPkg;
+      };
+
+      programs.emacs = {
+        enable = true;
+        package = emacsPkg;
+        extraPackages = epkgs: [] ++ cfg.extraEmacsPackages;
+      };
+
+      home.packages = [] ++ cfg.extraPackages;
+
+      home.file.".config/emacs/early-init.el".text = ''
+        ${cfg.earlyInit}
+      '';
+
+      home.file.".config/emacs/init.el".text = ''
+        ${cfg.initPrelude}
+        ${cfg.init}
+        ${cfg.initPostlude}
+      '';
+    };
+  };
 }

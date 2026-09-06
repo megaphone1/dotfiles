@@ -28,6 +28,13 @@
         timeZone = "America / Edmonton";
       };
 
+      emacs = {
+        enable = true;
+        keys = {
+          leader = "SPC";
+        };
+      };
+
       home.stateVersion = "26.05";
     };
   };
