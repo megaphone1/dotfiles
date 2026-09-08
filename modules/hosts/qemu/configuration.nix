@@ -6,17 +6,7 @@
     ...
   }: {
     imports = [
-      self.nixosModules.nix
-      self.nixosModules.user
-      self.nixosModules.stylix
-      self.nixosModules.ssh
-      self.nixosModules.fish
-      self.nixosModules.ghostty
-      self.nixosModules.hyprland
-      self.nixosModules.noctalia
-      self.nixosModules.pipewire
-      self.nixosModules.neovim
-      self.nixosModules.yazi
+      self.nixosModules.all
     ];
 
     networking.hostName = "qemu";

@@ -1,22 +1,7 @@
 {self, ...}: {
   flake.homeConfigurations.anon = {...}: {
     imports = [
-      self.homeModules.user
-      self.homeModules.stylix
-      self.homeModules.git
-      self.homeModules.gpg
-      self.homeModules.emacs
-      self.homeModules.ghostty
-      self.homeModules.starship
-      self.homeModules.hyprland
-      self.homeModules.noctalia
-      self.homeModules.spicetify
-      self.homeModules.godot
-      self.homeModules.golang
-      self.homeModules.fetch
-      self.homeModules.yazi
-      self.homeModules.zen
-      self.homeModules.nix
+      self.homeModules.all
     ];
 
     config = {
@@ -35,6 +20,7 @@
         leader = "SPC";
       };
 
+      git.enable = true;
       godot.enable = true;
       golang.enable = true;
 
