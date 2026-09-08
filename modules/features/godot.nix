@@ -7,7 +7,7 @@
   }: let
     myCfg = config.godot;
     myEmacsCfg = config.emacs;
-    myDotnetPackage = pkgs.dotnetCorePackages.sdk_8;
+    myDotnetPackage = pkgs.dotnetCorePackages.sdk_8_0-bin;
   in {
     options.godot = {
       enable = lib.mkEnableOption "";
