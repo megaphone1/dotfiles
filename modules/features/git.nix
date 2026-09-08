@@ -18,9 +18,9 @@
     '';
   in {
     options.git = {
-      enable = lib.mkEnableOption;
+      enable = lib.mkEnableOption "";
 
-      signCommits = lib.mkOption {
+      enableSigning = lib.mkOption {
         type = lib.types.bool;
         default = false;
         description = ''
@@ -42,7 +42,7 @@
           };
         };
 
-        singing = lib.mkIf myCfg.signCommits {
+        signing = lib.mkIf myCfg.enableSigning {
           signByDefault = true;
           key = myUserCfg.key;
         };
