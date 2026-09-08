@@ -11,6 +11,7 @@
       self.homeModules.hyprland
       self.homeModules.noctalia
       self.homeModules.spicetify
+      self.homeModules.godot
       self.homeModules.golang
       self.homeModules.fetch
       self.homeModules.yazi
@@ -34,6 +35,7 @@
         leader = "SPC";
       };
 
+      godot.enable = true;
       golang.enable = true;
 
       home.stateVersion = "26.05";
